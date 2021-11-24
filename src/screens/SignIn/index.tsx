@@ -16,10 +16,14 @@ import { useAuth } from '../../hooks/auth'
 export function SignIn() {
   const navigation = useNavigation();
 
-  const { user } = useAuth();
+  const { user, signIn } = useAuth();
 
-  function handleSignIn() {
-    navigation.navigate('Home' as never) // WTF
+  async function handleSignIn() {
+    try {
+      await signIn();
+    } catch (error) {
+      alert(error)
+    }
   }
 
   return (
