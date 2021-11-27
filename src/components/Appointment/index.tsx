@@ -9,7 +9,7 @@ import CalendarSvg from '../../assets/calendar.svg';
 import { GuildIcon } from '../GuildIcon';
 import { categories } from '../../utils/categories';
 import { theme } from '../../global/theme';
-import { GuildProps } from '../Guild';
+import { Guild, GuildProps } from '../Guild';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export type AppointmentProps = {
@@ -33,7 +33,7 @@ export function Appointment({ data, ...rest }: Props) {
     <RectButton {...rest}>
       <View style={styles.container}>
         <LinearGradient style={styles.guildIconContainer} colors={[secondary50, secondary70]}>
-          <GuildIcon />
+          <GuildIcon guildId={data.guild.id} iconId={data.guild.icon} />
         </LinearGradient>
         <View style={styles.content}>
           <View style={styles.header}>
